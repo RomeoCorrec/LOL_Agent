@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: lol-qdrant
+    ports:
+      - "6333:6333"  # Port API
+      - "6334:6334"  # Port gRPC (interne)
+    volumes:
+      - ./qdrant_storage:/qdrant/storage  # Persistance des données sur ton disque
+    restart: always
